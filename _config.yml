@@ -7,15 +7,15 @@ permalink:        pretty
 relative_permalinks: true
 
 # Setup
-title:            Hyde
-tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:              http://hyde.getpoole.com
+title:            'Marcin Biegun'
+tagline:          'splitting reality'
+description:      'Scalable Ruby, full-stack, self-management, visual arts'
+url:              http://marcinbiegun.com
 baseurl:          /
 
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           'Marcin Biegun'
+  url:            https://marcinbiegun.com
 
 paginate:         5
 
@@ -25,5 +25,7 @@ version:          2.1.0
 github:
   repo:           https://github.com/poole/hyde
 
-gems:
-  - jekyll-paginate
+social:
+  twitter: kotutku
+  github: marcinbiegun
+  linkedin: mabiegun
