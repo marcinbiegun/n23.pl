@@ -26,11 +26,18 @@
         {% endif %}
       {% endfor %}
 
-      <a class="sidebar-nav-item" href="{{ site.github.repo }}/archive/v{{ site.version }}.zip">Download</a>
-      <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a>
-      <span class="sidebar-nav-item">Currently v{{ site.version }}</span>
     </nav>
 
-    <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" target="_blank" href="https://github.com/{{ site.social.github }}">GitHub</a>
+      <a class="sidebar-nav-item" target="_blank" href="https://www.linkedin.com/in/{{ site.social.linkedin }}">LinkedIn</a>
+    </nav>
+
+    <p>
+      <small>
+        &copy; {{ site.time | date: '%Y' }} All rights reserved.<br>
+        Made with <a target="_blank" href="https://github.com/jekyll/jekyll">Jekyll</a> & <a target="_blank" href="https://github.com/poole/hyde">Hyde.</a>
+      </small>
+    </p>
   </div>
 </div>
