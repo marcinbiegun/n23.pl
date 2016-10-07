@@ -62,8 +62,6 @@ Let's sync the database from OSX client:
 ## Summary
 
 That's it! I've tested the setup on my account and it works flawlessy.
-If you use not yet encrypted database, you'll need first to migrate it
-to current version.
 
 ## Sources
 
