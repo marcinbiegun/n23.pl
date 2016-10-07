@@ -3,8 +3,10 @@ layout: post
 title: OmniFocus sync with Fastmail.fm using WebDAV
 ---
 
+![FastMail OmniFocus sync](/assets/fastmail_omnifocus/fastmail_omnifocus_sync.png)
+
 If you happen to use both OmniFocus nad FastMail, you can
-store your encrypted OmniFocus data on FastMail servers. Besides email,
+sync your encrypted OmniFocus to FastMail servers. Besides email,
 FastMail that also provides also a few other services, including WebDAV file
 storage. WebDAV is availale on all paid plans.
 
@@ -32,12 +34,12 @@ Let's sync the database from OSX client:
 
 2. In "Synchronization" tab select "Advanced (WebDAV)".
 
-3. Put in this address: `https://webdav.fastmail.com/{{username}}/files/`, where `{{username}}`
-   is your FastMail login, with "@" char replaced with ".", e.g. `mike.fastmail.fm`.
+3. Put in this address: `https://webdav.fastmail.com/{username}/files/`, where `{username}`
+   is your FastMail login, with `@` char replaced with `.`, e.g. `mike.fastmail.fm`.
 
 4. Click "Sync Now".
 
-5. Your should be prompted for a password: use your FastMail login and
+5. Your should be prompted for a password, use your normal FastMail login and
    the app-password previously generated.
 
 6. If everything is fine, the app will successfully peform the first sync now.
@@ -47,18 +49,23 @@ Let's sync the database from OSX client:
    key for encrypting the database.
 
    To set the ecnryption password, click "Show Sync Details...",
-   go to  "Encryption" tab and set your encryption password there.
+   go to "Encryption" tab and set it there.
 
 ## Connect OmniFocus on iOS
 
-1. Open "Settings" (pull down to find it), select "Sync Method" -> "Custom (WebDAV)"
+1. Open "Settings" (pull down to find it), select "Sync Method" -> "Custom (WebDAV)".
 
-2. Enter the same WebDAV credentials as previously on OSX: address, login and password.
+2. Enter the same WebDAV credentials as previously on OSX: address, login and app-password.
 
-3. If eveyrtihng went fine, you'll should be promptet for your encryption
-   password.
+3. If eveyrtihng went fine, you'll should be prompted for your encryption password.
 
-## Sources:
+## Summary
+
+That's it! I've tested the setup on my account and it works flawlessy.
+If you use not yet encrypted database, you'll need first to migrate it
+to current version.
+
+## Sources
 
 * [OmniFocus OSX sync](https://support.omnigroup.com/documentation/omnifocus/mac/2.7/en/getting-synced)
 * [OmniFocus iOS sync](https://support.omnigroup.com/documentation/omnifocus/ios/2.17/en/getting-synced)
