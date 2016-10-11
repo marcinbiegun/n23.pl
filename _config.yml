@@ -29,3 +29,6 @@ social:
   twitter: kotutku
   github: marcinbiegun
   linkedin: mabiegun
+
+integrations:
+  google_analytics_id: 'UA-85551651-1'
