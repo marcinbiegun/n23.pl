@@ -9,7 +9,7 @@ relative_permalinks: true
 # Setup
 title:            'Marcin Biegun'
 tagline:          'splitting reality'
-description:      'Scalable Ruby, full-stack, self-management, visual arts'
+description:      'Ruby, full-stack, self-management, visual arts'
 url:              http://marcinbiegun.com
 baseurl:          /
 
