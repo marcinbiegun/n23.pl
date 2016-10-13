@@ -1,6 +1,6 @@
 ---
 layout: post
-title: OmniFocus sync with Fastmail.fm using WebDAV
+title: OmniFocus sync with FastMail using WebDAV
 ---
 
 ![FastMail OmniFocus sync](/assets/fastmail_omnifocus/fastmail_omnifocus_sync.png)
