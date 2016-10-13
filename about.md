@@ -11,5 +11,4 @@ front-end interfaces using Backbone.js and React.js.
 Recently I'm learning QuartzComposer, Cyril and other tools for coding
 engaging 3D animations.
 
-Reach me at <strong class="email">liamg @ m.nugeib</strong>
-
+Reach me at <strong>biegun.m @ gmail</strong>
