@@ -5,10 +5,10 @@ title: OmniFocus sync with FastMail using WebDAV
 
 ![FastMail OmniFocus sync](/assets/fastmail_omnifocus/fastmail_omnifocus_sync.png)
 
-If you happen to use both OmniFocus nad FastMail, you can
-sync your encrypted OmniFocus to FastMail servers. Besides email,
-FastMail that also provides also a few other services, including WebDAV file
-storage. WebDAV is availale on all paid plans.
+If you happen to use both OmniFocus and FastMail, you can
+sync your encrypted OmniFocus database using FastMail servers.
+It's done via WebDAV protocol, which is available on all paid FastMail
+accounts.
 
 Here's a quick tutorial how to set it up.
 
