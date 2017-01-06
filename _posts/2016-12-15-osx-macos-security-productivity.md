@@ -113,7 +113,7 @@ A great set of ~100 settings for power users:
 * El Capitan: [https://gist.github.com/brandonb927/3195465](https://gist.github.com/brandonb927/3195465)
 * Sierra: [https://github.com/mathiasbynens/dotfiles/blob/master/.macos](https://github.com/mathiasbynens/dotfiles/blob/master/.macos)
 
-### OSX security guide
+### Security guides
 
 Simple things accesible from system preferences:
 
@@ -122,6 +122,10 @@ Simple things accesible from system preferences:
 A magnificent, complete guide on how to make macOS more secure:
 
 * [https://github.com/drduh/macOS-Security-and-Privacy-Guide](https://github.com/drduh/macOS-Security-and-Privacy-Guide)
+
+General Internet security guide:
+
+* [https://www.privacytools.io/](https://www.privacytools.io/)
 
 ### Block malicious domains
 
