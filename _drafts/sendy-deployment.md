@@ -5,12 +5,27 @@ title: Sendy deployment on AWS
 
 T2 micro is free for 6 months?
 
-Preqrequisites:
+# Preqrequisites
 
-* SSL cert (buy or generate it)
-* domain/subdomain
+1. SSL Cert
 
-1. Create new t2.micro instance with Ubuntu Server 16.04.
+Prepare your SSL cert files or generate them by running `openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout sendy.key -out sendy.pem`.
+
+Note that for production instance you need to have a paid signed SSL cert - or links and metrics won't work in the emails.
+
+3. Server
+
+Create new t2.micro instance (free for 6 months) with Ubuntu Server 16.04.
+
+2. Domain
+
+Set DNS A record pointing to your server.
+
+## Install docker
+
+Use sudo to install stuff and setup docker acess to tour normal user.
+
+1. Sign in to your Ubuntu server.
 
 2. Fix annoying locales messages
 
@@ -29,41 +44,46 @@ sudo locale-gen en_US.UTF-8
 
 3. Install docker and docker-compose.
 
-Folow this guide to install Docker (step 1 and 2): https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04
+Folow this guide to install Docker and grant access to your user (step 1 and 2): https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04
 
 Follow this guide to install Docker-Compose (step 1): https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-ubuntu-16-04
 
-4. Clone https://github.com/mortezaPRK/docker-php_fpm-nginx.git and rename to `sendy`.
+## Install Sendy Docker container
 
-5. In `~/sendy/.docker/docker-compose.yml` remove `psql` and set mysql passwors.
+Don't use sude here, everything should run from a normal user if you
+granted the user access to Docker in previous step.
 
-6. In `nginx.conf`:
+1. Run `git clone https://github.com/marcinbiegun/docker-sendy.git` in home directory.
 
-* set domain name
-* add ssl config
-* put rewrite
+2. Open `~/docker-sendy/docker/docker-compose.yml`and set mysql passwords at the bottom of the fielkk.
 
-7. add sql_mode to mysql.cnf file
+3. In `vim ~/docker-sendy/docker/server.conf` change value `server_name` to your domain.
 
-8. copy sendy files into public_html
+4. Copy Sendy files to `~/docker-sendy/public_html`.
 
-9. edit includes/config.php (mysql hostname should be `mysql`)
+5. Edit `docker-sendy/public_html/include/config.php`:
 
-10. chmod 777 `public_html/uploads`
+* set `APP_PATH` to tour site url
+* set `$dbHost` do `mysql`
+* set `$dbUser` to `sendy`
+* set `$dbName` to `sendy`
+* set `$dbPass` to your password
 
-11. setup cron locally (not inside docker, it's hard)
+6. Run `chmod 777 ~/docker-sendy/public_html/uploads`.
+
+7. Build and start application by runnig `cd ~/docker-sendy/docker` and `docker-compose build`. Then start the app with `docker-compose start`.
+
+8. Setup cron. Check the php container name by runnig `docker-compose ps`, it should be named like `docker_php_1`.
+
+Then run `crontab -e` and add this line to the crontab:
 
 ```
 */5 * * * * docker exec docker_php_1 php /code/public_html/scheduled.php
 ```
 
-12. enable gettext (added to some file)
+## Prepare the app
 
+At this point Sendy should be running. Now open the URL, finish the
+setup (connect Amazon SAS account), and try to send your first
+newsletter.
 
-13.  generate not-signed ssll keys
-
-```
-openssl req -x509 -newkey rsa:4086 \
--keyout key.pem -out cert.pem \
--days 3650 -nodes -sha256
-```
