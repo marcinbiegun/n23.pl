@@ -42,11 +42,11 @@ or prepare other small machine (512MB of RAM is enough) with Ubuntu Server 16.04
 
 3. Open `~/docker-sendy/docker/docker-compose.yml` and set MySQL passwords at the end of the file
 
-4. In `~/docker-sendy/docker/server.conf` change value of `server_name` to your address
+4. In `~/docker-sendy/docker/server.conf` change value of `server_name` to your domain name
 
 5. Copy Sendy files inside `~/docker-sendy/public_html`
 
-6. Edit `docker-sendy/public_html/include/config.php`:
+6. Edit `~/docker-sendy/public_html/include/config.php`:
     * set `APP_PATH` to tour site URL
     * set `$dbHost` do `mysql`
     * set `$dbUser` to `sendy`
@@ -58,8 +58,7 @@ or prepare other small machine (512MB of RAM is enough) with Ubuntu Server 16.04
 7. Build the application with  `cd ~/docker-sendy/docker`, `docker-compose build`. Then start it with `docker-compose start`
 
 8. Setup cron. Find the php container name by runnig `docker-compose ps`, it will be named like `docker_php_1`
-
-Run `crontab -e` and add this line:
+  * Run `crontab -e` and add this line:
 
 ```
 * * * * * docker exec docker_php_1 php /code/public_html/scheduled.php
