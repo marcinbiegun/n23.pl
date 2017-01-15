@@ -6,14 +6,14 @@ title: Sendy deployment with Docker
 ![Sendy deployment with Docker](/assets/sendy_docker.png)
 
 If you look for a simple, inexpensive and solid newsletter service, I
-can recommend Sendy - it's a self-hosted (PHP and MySQL) system using Amazon SES service to deliver emails.
+can recommend [Sendy](https://sendy.co) - it's a self-hosted (PHP and MySQL) system using Amazon SES to deliver emails.
 
-It costs $59 + about $5/month for SES deliveries - at least 10x cheaper
+It costs $59 for a license + a few dollars monthly for SES deliveries, in my case it's 20x cheaper
 that MailChimp or GetResponse.
 
-I didn't find any clear end-to-end instructions how to install Sendy ,
+I didn't find any clear end-to-end instructions how to install Sendy,
 so I've prepared my own [Docker-Sendy](https://github.com/marcinbiegun/docker-sendy)
-configuration, which will get you a running Sendy instance in few easy steps.
+configuration which will get you a running Sendy instance in few easy steps.
 
 ## Prerequisites
 
@@ -47,18 +47,17 @@ or prepare other small machine (512MB of RAM is enough) with Ubuntu Server 16.04
 5. Copy Sendy files inside `~/docker-sendy/public_html`
 
 6. Edit `~/docker-sendy/public_html/include/config.php`:
-    * set `APP_PATH` to tour site URL
+    * set `APP_PATH` to your site URL
     * set `$dbHost` do `mysql`
     * set `$dbUser` to `sendy`
     * set `$dbName` to `sendy`
-    * set `$dbPass` to password you've set in `docker-compose.yml`
+    * set `$dbPass` to the password you've set in `docker-compose.yml`
 
 6. Run `chmod 777 ~/docker-sendy/public_html/uploads`
 
-7. Build the application with  `cd ~/docker-sendy/docker`, `docker-compose build`. Then start it with `docker-compose start`
+7. Inside `~/docker-sendy/docker` directory, run `docker-compose build` to build the containers, then start the app with `docker-compose start`
 
-8. Setup cron. Find the php container name by runnig `docker-compose ps`, it will be named like `docker_php_1`
-  * Run `crontab -e` and add this line:
+8. Setup cron. Find the PHP container's name by running `docker-compose ps`, it will be named like `docker_php_1`.  Run `crontab -e` and add this line:
 
 ```
 * * * * * docker exec docker_php_1 php /code/public_html/scheduled.php
