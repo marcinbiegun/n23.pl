@@ -65,7 +65,7 @@ or prepare other small machine (512MB of RAM is enough) with Ubuntu Server 16.04
 
 ## Configure Sendy
 
-At this point Sendy should be up and running under tour domain address. Open it, finish the
+At this point Sendy should be up and running under your domain address. Open it, finish the
 setup inside Sendy installer (connect Amazon SAS account, etc.).
 
 Done! You can send your first newsletter.
