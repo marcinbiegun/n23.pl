@@ -1,4 +1,4 @@
-# marcinbiegun.com
+# n23.pl
 
 Source files for my homepage: http://n23.pl
 
