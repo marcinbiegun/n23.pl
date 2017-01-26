@@ -8,14 +8,15 @@ relative_permalinks: true
 
 # Setup
 title:            'Marcin Biegun'
+sidebar_title:    'n23.pl'
 tagline:          'splitting reality'
-description:      'Ruby, full-stack, life, art'
-url:              http://marcinbiegun.com
+description:      'Marcin Biegun'
+url:              http://n23.pl
 baseurl:          /
 
 author:
   name:           'Marcin Biegun'
-  url:            http://marcinbiegun.com
+  url:            http://n23.pl
 
 paginate:         5
 
