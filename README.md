@@ -1,6 +1,6 @@
 # marcinbiegun.com
 
-Source files for my homepage: http://marcinbiegun.com
+Source files for my homepage: http://n23.pl
 
 ## Built with Hyde
 
