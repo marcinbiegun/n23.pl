@@ -30,6 +30,7 @@ the list for my future reference, and possible use for other power users.
 * [Flux](https://justgetflux.com) - prevents your eyes from being burned in late hours
 * [MenuMeters](http://member.ipmu.jp/yuji.tachikawa/MenuMetersElCapitan/) - displays system metrics (CPU, memory, network, disk usage) on menu bar
   * I like seeing CPU usage to quickly see anomalies like zombie apps taking 100% of CPU power
+* [Boom2](http://www.globaldelight.com/boom/index.php) ($13) - system-wide audio equalizer
 
 ### Security Apps
 
