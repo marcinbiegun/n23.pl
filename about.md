@@ -10,5 +10,3 @@ front-end interfaces using Backbone.js and React.js.
 
 Recently I'm learning QuartzComposer, Vuo, Cyril and other tools for coding
 engaging 3D animations.
-
-Reach me at <strong id="2ewh6hly13"></strong>
