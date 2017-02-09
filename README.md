@@ -2,6 +2,6 @@
 
 Source files for my homepage: http://n23.pl
 
-## Built with Hyde
+## Kudos
 
-Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme that pairs a prominent sidebar with uncomplicated content. It's based on [Poole](http://getpoole.com), the Jekyll butler.
+Built with [Jekyll](https://github.com/jekyll/jekyll) and [Jekyll-Uno](https://github.com/joshgerdes/jekyll-uno) theme.
