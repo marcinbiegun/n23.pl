@@ -31,6 +31,7 @@ the list for my future reference, and possible use for other power users.
 * [MenuMeters](http://member.ipmu.jp/yuji.tachikawa/MenuMetersElCapitan/) - displays system metrics (CPU, memory, network, disk usage) on menu bar
   * I like seeing CPU usage to quickly see anomalies like zombie apps taking 100% of CPU power
 * [Boom2](http://www.globaldelight.com/boom/index.php) ($13) - system-wide audio equalizer
+* [BrightnessMenulet](https://github.com/superduper/BrightnessMenulet) - software controls for monitor brightness
 
 ### Security Apps
 
@@ -46,11 +47,12 @@ the list for my future reference, and possible use for other power users.
   * [GPG Suite](https://gpgtools.org/) - GUI tools making using GPG email and files encryption easy, integrates with Mail.app
   * [Coherence](http://www.bzgwebs.com/coherence) ($3) - encapsulates webapps as Mac apps
   * [Chrome](https://www.google.com/chrome) with my favorite plugins:
-    * [Disconnect](https://chrome.google.com/webstore/detail/disconnect/jeoacafpbcihiomhlakheieifhpjdfeo) - disables tracking/analytics/ad-network scripts 
+    * [Disconnect](https://chrome.google.com/webstore/detail/disconnect/jeoacafpbcihiomhlakheieifhpjdfeo) - disables tracking/analytics/ad-network scripts
     * [AdBblock](https://chrome.google.com/webstore/detail/adblock/gighmmpiobklfepjocnamgkkbiglidom) - disables ads
     * [Signal](https://chrome.google.com/webstore/detail/signal-private-messenger/bikioccmkafdpakkkcpdbppfkghcmihk) - safe communication
     * [Tab Wrangler](https://chrome.google.com/webstore/detail/tab-wrangler/egnjhciaieeiiohknchakcodbpgjnchh) - automatically closes unused tabs after 20m
     * [Bookolio](https://chrome.google.com/webstore/detail/bookolio/lbgmbgopjppdjfopndcniomnhpodajba) - displays a nice list of bookmarks in empty tabs, I like it better than having the bookmarks bar always visible
+    * [Linkclump](https://chrome.google.com/webstore/detail/linkclump/lfpjkncokllnfokkgpkobnkbkmelfefj) - enables you select multiple URLs and copy them or open in multiple tabs
     * [Pocket](https://chrome.google.com/webstore/detail/save-to-pocket/niloccemoadcdkdjlinkgdfekeahmflj) - stores articles to read later on iPhone during commute/lunch
 
 ## Preferences
