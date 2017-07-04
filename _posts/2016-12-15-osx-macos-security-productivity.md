@@ -6,9 +6,9 @@ title: OSX / MacOS settings for security and productivity
 ![OSX / MacOS settings for security and productivity](/assets/osx_mac_security_productivity.png)
 
 I was pretty impressed that my previous OSX install had served me for
-4 year of heavy software development and daily personal use.
+4 years of heavy software development and daily personal use.
 
-This year I've decided to do a fresh Sierra install.
+But a time has come for a fresh system reinstall.
 During the setup, I had some troubles
 remembering all useful system settings and tweaks I've made, so here's
 the list for my future reference, and possible use for other power users.
@@ -17,7 +17,7 @@ the list for my future reference, and possible use for other power users.
 
 ### Utility Apps
 
-* [Karabinier](https://github.com/tekezo/Karabiner-Elements) - best tool for remapping keys
+* [Karabinier](https://github.com/tekezo/Karabiner-Elements) - a tool for remapping keys
   * Disable CapsLock
   * Switch `right command` with `right alt` for easier access to polish diacritic chars
 * [Alfred](https://www.alfredapp.com) (free or $25) - application launcher and a swiss army knife
@@ -29,7 +29,7 @@ the list for my future reference, and possible use for other power users.
 * [KeepingYouAwake](https://github.com/newmarcel/KeepingYouAwake) - puts a coffe cup icon on menu bar, clicking it prevets your Mac from going to sleep for an hour (modern version of Caffeine app)
 * [Flux](https://justgetflux.com) - prevents your eyes from being burned in late hours
 * [MenuMeters](http://member.ipmu.jp/yuji.tachikawa/MenuMetersElCapitan/) - displays system metrics (CPU, memory, network, disk usage) on menu bar
-  * I like seeing CPU usage to quickly see anomalies like zombie apps taking 100% of CPU power
+  * quickly identify anomalies like zombie apps taking 100% of CPU power
 * [Boom2](http://www.globaldelight.com/boom/index.php) ($13) - system-wide audio equalizer
 * [BrightnessMenulet](https://github.com/superduper/BrightnessMenulet) - software controls for monitor brightness
 
@@ -40,9 +40,8 @@ the list for my future reference, and possible use for other power users.
   * [ClamXav](https://www.clamxav.com/) ($30) - open-source antivirus, useful
   for scanning apps from not trusted sources
   * [LittleSnitch](https://www.obdev.at/products/littlesnitch/index.html) ($30) - firewall, it requires you to set rules for any new Internet connections
-    * Block unnecessary analytics/tracking connections coming from the system or apps
     * Detect suspicious connections
-  * [MicroSnitch](https://www.obdev.at/products/microsnitch/index.html) ($5) - notifies you when any app uses the camera or microphone
+    * Block unnecessary analytics/tracking connections
   * [TorBrowser](https://www.torproject.org/projects/torbrowser.html.en) - the simplest way to be sure you are using TOR correcly is to have a dedicated TOR browser
   * [GPG Suite](https://gpgtools.org/) - GUI tools making using GPG email and files encryption easy, integrates with Mail.app
   * [Coherence](http://www.bzgwebs.com/coherence) ($3) - encapsulates webapps as Mac apps
@@ -118,9 +117,6 @@ A great set of ~100 settings for power users:
 
 ### Security guides
 
-Simple things accesible from system preferences:
-
-* [http://docs.hardentheworld.org/OS/OSX\_10.11\_El\_Capitan](http://docs.hardentheworld.org/OS/OSX_10.11_El_Capitan)
 
 A magnificent, complete guide on how to make macOS more secure:
 
@@ -129,6 +125,14 @@ A magnificent, complete guide on how to make macOS more secure:
 General Internet security guide:
 
 * [https://www.privacytools.io/](https://www.privacytools.io/)
+
+Simple things accesible from system preferences:
+
+* [http://docs.hardentheworld.org/OS/OSX\_10.11\_El\_Capitan](http://docs.hardentheworld.org/OS/OSX_10.11_El_Capitan)
+
+* Disable macOS services calling to Cupertino:
+
+* [https://github.com/karek314/macOS-home-call-drop](https://github.com/karek314/macOS-home-call-drop)
 
 ### Block malicious domains
 
