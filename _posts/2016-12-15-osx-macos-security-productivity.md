@@ -47,7 +47,7 @@ the list for my future reference, and possible use for other power users.
   * [Coherence](http://www.bzgwebs.com/coherence) ($3) - encapsulates webapps as Mac apps
   * [Chrome](https://www.google.com/chrome) with my favorite plugins:
     * [Disconnect](https://chrome.google.com/webstore/detail/disconnect/jeoacafpbcihiomhlakheieifhpjdfeo) - disables tracking/analytics/ad-network scripts
-    * [AdBblock](https://chrome.google.com/webstore/detail/adblock/gighmmpiobklfepjocnamgkkbiglidom) - disables ads
+    * [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm) - best ad-blocking tool
     * [Signal](https://chrome.google.com/webstore/detail/signal-private-messenger/bikioccmkafdpakkkcpdbppfkghcmihk) - safe communication
     * [Tab Wrangler](https://chrome.google.com/webstore/detail/tab-wrangler/egnjhciaieeiiohknchakcodbpgjnchh) - automatically closes unused tabs after 20m
     * [Bookolio](https://chrome.google.com/webstore/detail/bookolio/lbgmbgopjppdjfopndcniomnhpodajba) - displays a nice list of bookmarks in empty tabs, I like it better than having the bookmarks bar always visible
