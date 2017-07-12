@@ -32,6 +32,7 @@ the list for my future reference, and possible use for other power users.
   * quickly identify anomalies like zombie apps taking 100% of CPU power
 * [Boom2](http://www.globaldelight.com/boom/index.php) ($13) - system-wide audio equalizer
 * [BrightnessMenulet](https://github.com/superduper/BrightnessMenulet) - software controls for monitor brightness
+* [BetterTouchtool](https://www.boastr.net) - customize TouchBar icons
 
 ### Security Apps
 
