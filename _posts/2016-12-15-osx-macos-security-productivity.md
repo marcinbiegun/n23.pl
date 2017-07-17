@@ -22,7 +22,8 @@ the list for my future reference, and possible use for other power users.
   * Switch `right command` with `right alt` for easier access to polish diacritic chars
 * [Alfred](https://www.alfredapp.com) (free or $25) - application launcher and a swiss army knife
   * Bind `CMD + F1`, `CMD + F2`, etc. to app activate, my most used apps are Chrome, MacVim and iTerm
-  * Some custom scripts, e.g. "j GR-123" command to open Jira ticket
+  * Add a task to task manager's inbox, e.g. `inbox Buy milk`
+  * Some custom scripts, e.g. `j GR-123"`command to open Jira ticket
 * [Spectacle](https://www.spectacleapp.com/) - simple window manager, organize windows using keyboard
   * `Option + Command + F` to maximize active window
   * `Option + Command + ←` to move window to the left part of the screen
