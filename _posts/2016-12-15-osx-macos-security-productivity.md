@@ -44,7 +44,6 @@ the list for my future reference, and possible use for other power users.
   * [LittleSnitch](https://www.obdev.at/products/littlesnitch/index.html) ($30) - firewall, it requires you to set rules for any new Internet connections
     * Detect suspicious connections
     * Block unnecessary analytics/tracking connections
-  * [TorBrowser](https://www.torproject.org/projects/torbrowser.html.en) - the simplest way to be sure you are using TOR correcly is to have a dedicated TOR browser
   * [GPG Suite](https://gpgtools.org/) - GUI tools making using GPG email and files encryption easy, integrates with Mail.app
   * [Coherence](http://www.bzgwebs.com/coherence) ($3) - encapsulates webapps as Mac apps
   * [Chrome](https://www.google.com/chrome) with my favorite plugins:
