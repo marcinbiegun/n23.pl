@@ -142,3 +142,7 @@ internet addresses.  Put them inside your `/etc/hosts` system file to block
 them on DNS level.
 
 * [http://someonewhocares.org/hosts](http://someonewhocares.org/hosts)
+
+### Other references
+
+* https://github.com/nikitavoloboev/my-mac-os/
