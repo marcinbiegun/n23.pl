@@ -4,92 +4,83 @@ title: MacOS creative visual coding quick-start
 github_issue_id: 4
 ---
 
-# Intro
+I don't remember the exact piece of art that inspired me to start learning creative coding last year, but I recall the disorientation regard all
+the different software, languages, libraries, and engines.
 
-In this article I want to present an simple opinionated setup for visual
-creative coding on macOS.
+My advice is to just start building stuff. Start with simple, with software letting you deliver results fast. That's a lot better than spending days reading about software comparisons (I'm so guilty).
 
-I've spent myself too much time exploring the possibilities before
-actually making something, so here's my setup that should be good as a
-starting point.
+If you don't have experience working with programming or working 2d/3d graphics, there's a plenty stuff to learn beside programming. You will find your tools limits anyway, and then
+move to another tool while making an informed decision.
 
-I'm focusing on generative, live rendered visuals, like in 3d games - 
-I think it's more fun for prorammers and it's GPUs areonly getting
-stronger (and cheper). But I'm
-also including crucial video-related helper tools, which will help with
-composing a video file.
+## The software you need
 
-## Types of software you need
+Tools usually fall into one of those categories, don't expect silver bullets.
 
-There at least a few categories of software related to
-visual creative coding:
+  * VJ tools and media servers - used for playing media, controlling the composition
+  * visual/text programming toolkits - more versatile, good for getting results quickly and learning the concepts,
+  * libraries, engines - you can code anything, but it is more complex and requires more work
+  * live-coding tools - fun tools for putting programmers on stage
+  * plugins/effects - usually the are cross-software compatible
+  * audio/graphics/video creation tools - specialized software for creating assets
 
-  * VJ tools / media servers
-  * visual/text programming toolkits - deliver fast, learn concepts
-  * livecoding tools
-  * plugins / effects
-  * graphic tools like Blender or FinalCutProX
+## Quickstart
 
-Start simple. Especiall if you don't have a lot of graphics bachground
-- it's good to produce results fast. That way you'll learn the basic concepts faster.
-Then if you
+* Coding: Cyril or Libecodelab, Processing, GLSL shaders
+* Patching: TouchDesigner
+* Composition: VDMX or FinalCutProX
 
-Coding: cyril / libecodelab, Processing, Shaders
-Patching: TouchDesigner
-Composition: VDMX / FinalCutProX
+## My full software selection
 
-## My Apps selection
+Here's my opinionated list. I think it's pretty well balanced.
 
-* VJ Video Mixing / media server
+* Video Mixing and media servers
   * [VDMX](http://vdmx.vidvox.net) ($349 / $199 for the poor / free version with no save feature)
-    * It's most advanced of VJ software, a bit harder to grasp, but it
-    let's you to do a lot of customizations. Supports a lot of video and
-    plugins formats.
-    * Alternative: [Resolume](https://resolume.com)
+    * It's most advanced of VJ software, a bit harder to grasp, but it lets you do a lot of moderately complex stuff. Great support for video and plugin formats.
+    * Simpler alternative: [Resolume](https://resolume.com)
 * Simple visual coding, good for creating plugins/filters
-  * Vuo
-  * alterntives: [QuartzComposer](https://en.wikipedia.org/wiki/Quartz_Composer), free, many resource, but deprecated by Apple
-* Advanced visual coding, media powerhouse, protoyping
+  * [Vuo](https://vuo.org)
+* Advanced visual coding, media powerhouse, prototyping
   * [TouchDesigner](https://www.derivative.ca) ($600 / $300 for students / free version with limitations)
     * Wonderfull advanced tool for creating custom 2D and 3D animations,
     supports a lot of inputs/outputs
-    * Alternatives: [maxMSP](https://cycling74.com/products/max), Vuo
-* Generatos
+    * Alternatives: [maxMSP](https://cycling74.com/products/max), [vvvv](https://vvvv.org/)
+* Generators
   * [Lumen](https://lumen-app.com) ($129 / free version with watermark)
     * a fine analog-style video generator
+  * [Synesthesia](https://synesthesia.live)
 * Shaders
   * [shadertoy.com](https://www.shadertoy.com)
   * [ISF](https://www.interactiveshaderformat.com/)
+  * [KodeLife](https://hexler.net/software/kodelife) shaders livecoding editor
 * Coding
   * [Processing](https://processing.org/)
   * [openFrameworks](http://openframeworks.cc/)
   * [Unity3D](https://unity3d.com/)
-* livecoding
+  * [vvvv](https://vvvv.org/)
+* Live-coding
   * [Cyril](http://cyrilcode.com/)
     * a great little tool
   * [LiveCodeLab](http://livecodelab.net)
-    * a bit more advaced in Browser
-* utils & helpers
-  * [KodeLife](https://hexler.net/software/kodelife) shaders livecoding
-  * sending video between apps
-    * [Syphon](http://syphon.v002.info/) - it's a open-source protocol,
-    implemented in many apps on macOS
-  * video eidting
-    * Final Cut Pro X
-    * Free alternative [Filmore](https://filmora.wondershare.com)
-    * very simple open-source [VLMC](http://www.videolan.org/vlmc/index.html)
+    * a bit more advanced in Browser
+  * utils & helpers
+    * video editing
+      * Final Cut Pro X - just use it :)
   * downloading YouTube clips
     * [4K Video Downloader](https://www.4kdownload.com)
   * video encoding
     * [HandBrake](https://handbrake.fr)
-* Dd modelling
-    * free [Blender](https://www.blender.org)
-    * if you shit money [Cinema4D](https://www.maxon.net/en/products/cinema-4d/overview)
-* Dardware controllers
+* 3D graphics
+    * [Blender](https://www.blender.org)
+
+## Hardware controllers
+
+You will find useful to expose some controls as physical buttons.
+
+* Hardware controllers
   * small and cheap [KorgNano2](https://www.amazon.com/Korg-nanoKONTROL2-Slim-Line-Control-Surface/dp/B004M8UZS8)
-  * huge and full-featured
-   * [Akai APC40 MKII](https://www.amazon.com/Akai-Professional-APC40-Performance-Clip-Launch/dp/B00J3YYSUW)
-   * novation LaunchControl XL with a Launchpad,
+  * full-featured
+    * [Akai APC40 MKII](https://www.amazon.com/Akai-Professional-APC40-Performance-Clip-Launch/dp/B00J3YYSUW)
+    * novation LaunchControl XL togetehr with Launchpad
   * game controller
     * XBox 360 pad + wireless dongle, works on macOS
   * as phone app [TouchOSC](https://hexler.net/software/touchosc)
