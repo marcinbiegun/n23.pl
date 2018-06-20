@@ -11,7 +11,7 @@ sync your encrypted OmniFocus database using FastMail servers.
 It's done via WebDAV protocol, which is available on all paid FastMail
 accounts.
 
-Here's a quick tutorial how to set it up.
+Here's a quick tutorial on how to set it up.
 
 ## Create safe FastMail app-password
 
@@ -40,29 +40,29 @@ Let's sync the database from OSX client:
 
 4. Click "Sync Now".
 
-5. Your should be prompted for a password, use your normal FastMail login and
+5. You should be prompted for a password, use your normal FastMail login and
    the app-password previously generated.
 
-6. If everything is fine, the app will successfully peform the first sync now.
+6. If everything is fine, the app will successfully perform the first sync now.
 
 7. Notice you didn't provide an encryption password yet - by default,
    OmniFocus uses the same password both for accessing WebDAV and as an
    key for encrypting the database.
 
-   To set the ecnryption password, click "Show Sync Details...",
+   To set the encryption password, click "Show Sync Details...",
    go to "Encryption" tab and set it there.
 
 ## Connect OmniFocus on iOS
 
 1. Open "Settings" (pull down to find it), select "Sync Method" -> "Custom (WebDAV)".
 
-2. Enter the same WebDAV credentials as previously on OSX: address, login and app-password.
+2. Enter the same WebDAV credentials as previously on OSX: address, login, and app-password.
 
-3. If eveyrtihng went fine, you'll should be prompted for your encryption password.
+3. If everything went fine, you'll be prompted for your encryption password.
 
 ## Summary
 
-That's it! I've tested the setup on my account and it works flawlessy.
+That's it! I've tested the setup on my account and it works flawlessly.
 
 ## Sources
 

@@ -22,13 +22,13 @@ the list for my future reference, and possible use for other power users.
   * Disable CapsLock
   * Switch `right command` with `right alt` for easier access to polish diacritic chars
 * [Alfred](https://www.alfredapp.com) (free or $25) - application launcher and a swiss army knife
-  * Bind `CMD + F1`, `CMD + F2`, etc. to app activate, my most used apps are Chrome, MacVim and iTerm
+  * Bind `CMD + F1`, `CMD + F2`, etc. to app activate, my most used apps are Chrome, MacVim, and iTerm
   * Add a task to task manager's inbox, e.g. `inbox Buy milk`
   * Some custom scripts, e.g. `j GR-123"`command to open Jira ticket
 * [Spectacle](https://www.spectacleapp.com/) - simple window manager, organize windows using keyboard
   * `Option + Command + F` to maximize active window
-  * `Option + Command + ←` to move window to the left part of the screen
-* [KeepingYouAwake](https://github.com/newmarcel/KeepingYouAwake) - puts a coffe cup icon on menu bar, clicking it prevets your Mac from going to sleep for an hour (modern version of Caffeine app)
+  * `Option + Command + ←` to move a window to the left part of the screen
+* [KeepingYouAwake](https://github.com/newmarcel/KeepingYouAwake) - puts a coffee cup icon on the menu bar, clicking it prevents your Mac from going to sleep for an hour (modern version of Caffeine app)
 * [Flux](https://justgetflux.com) - prevents your eyes from being burned in late hours
 * [MenuMeters](http://member.ipmu.jp/yuji.tachikawa/MenuMetersElCapitan/) - displays system metrics (CPU, memory, network, disk usage) on menu bar
   * quickly identify anomalies like zombie apps taking 100% of CPU power
@@ -73,12 +73,12 @@ the list for my future reference, and possible use for other power users.
      * Key Repeat - Fast
      * Delay Until Repeat - Short
      * Use all `F1`, `F2`, etc. keys as standard function keys
-         * You will need to hold `Fn` to use brigthness/volume controls, but you can bind anything to function keys
+         * You will need to hold `Fn` to use brightness/volume controls, but you can bind anything to function keys
   * Text
      * Disable all the auto-correct crap
-     * Disable accents menu on key hold, in console: `defaults write -g ApplePressAndHoldEnabled -bool false`
+     * Disable accents menu on key hold,  run: `defaults write -g ApplePressAndHoldEnabled -bool false`
 * Dock
-  * Automaticaly hide and show the Dock - I use keys most of the time to change apps
+  * Automatically hide and show the Dock - I use keys most of the time to change apps
 * General
   * Use dark menu bar and Dock
 * Mouse
@@ -95,20 +95,20 @@ the list for my future reference, and possible use for other power users.
 
 ### Finder Preferences
 
-* Remove unused things from sidebar
+* Remove unused things from the sidebar
 * Advanced
   * Show all file extensions
 
 ### TextEdit Preferences
 
 * Preferences
-  * Plain Text - make it like good ol'Notepad
+  * Plain Text - make it like good old notepad
      * copy & paste to get rid of text formatting
 
 ## Digging deeper
 
-Here's a few tutorials for tweaking hidden system settings.
-Go throught them and enable those you find suitable.
+Here are a few tutorials for tweaking hidden system settings.
+Go through them and enable those you find suitable.
 
 ### OSX for hackers settings
 
@@ -146,4 +146,4 @@ them on DNS level.
 
 ### Other references
 
-* https://github.com/nikitavoloboev/my-mac-os/
+* https://github.com/nikitavoloboev/my-mac-os/ https://github.com/nikitavoloboev/my-mac-os/

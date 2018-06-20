@@ -29,7 +29,7 @@ or prepare other small machine (512MB of RAM is enough) with Ubuntu Server 16.04
 
 ## Install Docker and Docker-Compose
 
-1. Install Docker and grant non-sudo Docker access for your user (steps 1 & 2):
+1. Install Docker and grant an user Docker access for your user (steps 1 & 2):
     * [How To Install and Use Docker on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
 
 2. Install Docker-Compose (step 1):
@@ -37,7 +37,7 @@ or prepare other small machine (512MB of RAM is enough) with Ubuntu Server 16.04
 
 ## Install Sendy as a Docker container
 
-1. Clone my Docker-Compose configuration in home directory: `git clone https://github.com/marcinbiegun/docker-sendy.git`
+1. Clone my Docker-Compose configuration in the home directory: `git clone https://github.com/marcinbiegun/docker-sendy.git`
 
 2. Upload your SSL ceriticate files as `~/docker-sendy/docker/sendy.key` and `~/docker-sendy/docker/sendy.pem`
 
@@ -66,7 +66,7 @@ or prepare other small machine (512MB of RAM is enough) with Ubuntu Server 16.04
 
 ## Configure Sendy
 
-At this point Sendy should be up and running under your domain address. Open it, finish the
-setup inside Sendy installer (connect Amazon SAS account, etc.).
+At this point, Sendy should be up and running under your domain address. Open it, finish the setup inside Sendy installer (connect Amazon SAS account, etc.).
 
 Done! You can send your first newsletter.
+
