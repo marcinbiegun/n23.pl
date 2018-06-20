@@ -4,6 +4,8 @@ title: MacOS creative visual coding quick-start
 github_issue_id: 4
 ---
 
+![Creative coding](/assets/creative_coding.png)
+
 I don't remember the exact piece of art that inspired me to start learning creative coding last year, but I recall the disorientation regard all
 the different software, languages, libraries, and engines.
 
