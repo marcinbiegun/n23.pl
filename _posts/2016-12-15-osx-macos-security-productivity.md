@@ -1,6 +1,7 @@
 ---
 layout: post
 title: OSX / MacOS settings for security and productivity
+github_issue_id: 2
 ---
 
 ![OSX / MacOS settings for security and productivity](/assets/osx_mac_security_productivity.png)

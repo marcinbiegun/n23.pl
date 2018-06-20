@@ -1,6 +1,7 @@
 ---
 layout: post
 title: OmniFocus sync with FastMail using WebDAV
+github_issue_id: 1
 ---
 
 ![FastMail OmniFocus sync](/assets/fastmail_omnifocus/fastmail_omnifocus_sync.png)
