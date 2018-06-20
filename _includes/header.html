@@ -2,11 +2,12 @@
   <i class="icon icon-list btn-mobile-menu__icon"></i>
   <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
 </span>
-  
-<header class="panel-cover" style="background-image: url({{ "images/cover.jpg" | prepend: site.baseurl }})">
+
+<!-- <header class="panel-cover" style="background-image: url({{ "images/cover.jpg" | prepend: site.baseurl }})"> -->
+<header class="panel-cover">
   <div class="panel-main">
 
-    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__inner panel-inverted" id="topmost-layer">
     <div class="panel-main__content">
         <a href="{{ site.baseurl }}" title="link to home of {{ site.title }}">
           <img src="{{ "images/profile.png" | prepend: site.baseurl }}" class="user-image" alt="My Profile Photo">
@@ -99,6 +100,172 @@
   </div>
 </header>
 
+
+
+
+<!-- Anit-spam bot security for email address -->
 <script>
 document.getElementById("4g3bsfsafw").href = document.getElementById("4g3bsfsafw").href.replace(new RegExp('x', 'g'), '').replace(new RegExp('!', 'g'), '@');
+</script>
+
+
+
+<!-- GLSL eyecandy: style for positioning canvas -->
+<style>
+canvas {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+</style>
+
+
+
+<!-- GLSL eyecandy: vertex shader -->
+<script id="vs" type="not-js">
+void main()	{
+  gl_Position = vec4( position, 1.0 );
+}
+</script>
+
+
+
+<!-- GLSL eyecandy: pixel shader -->
+<script id="fs-other" type="not-js">
+precision mediump float;
+
+uniform float time;
+uniform vec2 mouse;
+uniform vec2 resolution;
+
+void main()	{
+
+  vec2 position;
+  position = (gl_FragCoord.xy / resolution.xy) + mouse / 5.0;
+  position = (position * resolution.xy) / resolution.y;
+
+  float t = time/2.0;
+  float color = 0.0;
+  color += sin(position.x * cos(t / 23.0) * 90.0) + cos(position.y * cos(t / 11.0) * 20.0);
+  color -= sin(position.y * sin(t / 17.0) * 60.0) + cos(position.x * sin(t / 19.0) * 30.0);
+  color += sin(position.x * sin(t / 11.0) * 30.0) + sin(position.y * sin(t / 34.0) * 50.0);
+  color -= sin(position.x * sin(t /  7.0) * 15.0) + sin(position.y * sin(t / 48.0) * 90.0);
+  color *= sin(t / 10.0) * 0.5;
+  vec4 c = vec4(vec3(color, color * 0.7, sin(color + t / 2.0) * 0.9), 1.0);
+  //c = vec4(c.b, c.r, c.g, 1.0);
+  c = clamp(c, 0.0, 0.5);
+
+  gl_FragColor = c;
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r74/three.min.js"></script>
+
+
+<script id="fs" type="not-js">
+#ifdef GL_ES
+precision mediump float;
+#endif
+
+uniform float time;
+uniform vec2 mouse;
+uniform vec2 resolution;
+
+void main( void ) {
+	
+	vec2 pos = ( gl_FragCoord.xy / resolution.xy ) - vec2(0.5,0.5);	
+
+  pos.y = -pos.y;
+
+        //float horizon = -0.3*cos(mouse.y*10.0/3.0); 
+        float horizon = -0.3*mouse.y;
+
+        float fov = 0.6;
+	float scaling = 0.61;
+	
+	vec3 p = vec3(pos.x, fov, pos.y - horizon);
+	//float a = -mouse.x*0.1*time;
+	float a = 0.1*time;
+	vec3 q = vec3(p.x*cos(a)+p.y*sin(a), p.x*sin(a)-p.y*cos(a),p.z);
+	vec2 s = vec2(q.x/q.z, q.y/q.z) * scaling;
+
+	//checkboard texture
+	//float color = sign((mod(s.x, 0.1) - 0.05) * (mod(s.y, 0.1) - 0.05));	
+	float color = sign((mod(s.x, 0.1) - 0.05));
+  color += 2.0;
+	//fading
+	color *= p.z*p.z*(8.0+2.0*sin(time*3.));
+	
+	//gl_FragColor = vec4( color*vec3(1.0, s.x, s.y), 1.0 );
+	gl_FragColor = vec4( color*vec3(s.x, s.y, s.y), 1.0 );
+	gl_FragColor -= 0.2;
+}
+</script>
+
+
+<!-- GLSL eyecandy: Three.js renderer -->
+<script>
+var $ = document.querySelector.bind(document);
+
+var camera = new THREE.Camera();
+camera.position.z = 1;
+
+var scene = new THREE.Scene();
+
+var geometry = new THREE.PlaneBufferGeometry(2, 2);
+
+var uniforms = {
+  time: { type: "f", value: 1.0 },
+  resolution: { type: "v2", value: new THREE.Vector2() },
+  mouse: { type: "v2", value: new THREE.Vector2() },
+};
+
+var material = new THREE.ShaderMaterial({
+  uniforms: uniforms,
+  vertexShader: $('#vs').text,
+  fragmentShader: $('#fs').text,
+});
+
+var mesh = new THREE.Mesh(geometry, material);
+scene.add(mesh);
+
+var renderer = new THREE.WebGLRenderer();
+
+var topElement = document.getElementById("topmost-layer");
+topElement.insertBefore(renderer.domElement, topElement.firstChild);
+
+document.body.addEventListener('mousemove', recordMousePosition);
+
+render(0);
+
+function recordMousePosition(e) {
+  // normalize the mouse position across the canvas
+  // so in the shader the values go from -1 to +1
+  var canvas = renderer.domElement;
+  var rect = canvas.getBoundingClientRect();
+
+  uniforms.mouse.value.x = (e.clientX - rect.left) / canvas.clientWidth  *  2 - 1;
+  uniforms.mouse.value.y = (e.clientY - rect.top ) / canvas.clientHeight * -2 + 1;
+}
+
+function resize() {
+  var canvas = renderer.domElement;
+  var dpr    = window.devicePixelRatio;  // make 1 or less if too slow
+  var width  = canvas.clientWidth  * dpr;
+  var height = canvas.clientHeight * dpr;
+  if (width != canvas.width || height != canvas.height) {
+    renderer.setSize( width, height, false );
+    uniforms.resolution.value.x = renderer.domElement.width;
+    uniforms.resolution.value.y = renderer.domElement.height;
+  }
+}
+
+function render(time) {
+  resize();
+  uniforms.time.value = time * 0.001;
+  renderer.render(scene, camera);
+  requestAnimationFrame(render);
+}
 </script>
