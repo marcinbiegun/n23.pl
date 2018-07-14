@@ -69,6 +69,16 @@
               </li>
             {% endif %}
 
+            {% if site.author.youtube_channel_id %}
+              <!-- YouTube -->
+              <li class="navigation__item">
+                <a href="https://www.youtube.com/channel/{{ site.author.youtube_channel_id }}" title="{{ site.author.youtube_channel_id }} on YouTube" target="_blank">
+                  <i class="icon icon-social-youtube"></i>
+                  <span class="label">YouTube</span>
+                </a>
+              </li>
+            {% endif %}
+
             {% if site.author.email %}
               <!-- Email -->
               <li class="navigation__item">
