@@ -251,11 +251,23 @@ vec4 imageCenter(bool usePos, vec2 pos) {
 
 
 
+  //time += 50.0;
+
+
+
+
+  float timeOffset = 10000.0;
   //pos.x += sin(time/10.0); 
   //pos.y -= cos(time/10.0); 
   vec2 uv;
 
-  vec2 m = mouse.xy / 2.0;
+  vec2 m = mouse.xy;
+  if (m.x > 1.0) { m.x = 1.0; }
+  if (m.x < -1.0) { m.x = -1.0; }
+  if (m.y > 1.0) { m.y = 1.0; }
+  if (m.y < -1.0) { m.y = -1.0; }
+
+  m *= 2.0;
   //m.x += sin(time/10.0); 
   //m.y -= cos(time/12.0); 
 
@@ -265,21 +277,21 @@ vec4 imageCenter(bool usePos, vec2 pos) {
   // render disorted
   if (usePos) { // circle
     //pos = gl_FragCoord.xy;
-    uv = pos.yx * m.yx * 2.0;
+    uv = pos.yx * m.yx;
   // render normal image
   } else { // background
     //pos = gl_FragCoord.xy;
-    uv = pos.xy * m.xy * 2.0;
+    uv = pos.xy * m.xy;
     //uv = pos * m / 10.0;
     //uv = ceil((302.-size) * pos.xy / (resolution.y));
   }
 
 
-	float T = time * rate;
+	float T = (time+timeOffset) * rate;
 	gl_FragColor = vec4(0, 0, 0, 1);
 	float light = f(uv) + f(uv + vec2(0.1, 0.1));
 	gl_FragColor += vec4(light, 0.01 * light, 0.01, 1.0);
-	float back = 0.2 * sin(11.71 * uv.x + T) + mix(0.01, 0.2 + sin(pulse * time), cos(55.21 * dot(uv.y, uv.x) + 3.0 + 0.2 * T)); 
+	float back = 0.2 * sin(11.71 * uv.x + T) + mix(0.01, 0.2 + sin(pulse * (time+timeOffset)), cos(55.21 * dot(uv.y, uv.x) + 3.0 + 0.2 * T)); 
 	vec4 fx = vec4(back, back, back, 1.0);
 	vec4 gfc = fx;
 
