@@ -217,6 +217,28 @@ void main( void ) {
 </script>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script id="fs" type="not-js">
 #ifdef GL_ES
 precision mediump float;
@@ -226,203 +248,92 @@ uniform float time;
 uniform vec2 mouse;
 uniform vec2 resolution;
 
-
 const float pi = 3.14159265359;
 
-  float rate = 0.05;
-  float size = 150.0;
-  float seed1 = 0.05;
-  float seed2 = 1.0;
-  float phase1 = 0.77;
-  float phase2 = 10.0;
-  float freq = 0.1;
-  float pulse = 0.5;
-  bool invert = false;
-  bool flip = false;
-  bool flop = false;
 
-//////// image
-#define PULSE(a,b,x) (step((a),(x)) - step((b),(x)))
-float f(vec2 uv) {
-	return PULSE(seed2, 0.1 + seed1, fract((17.77*phase1) * (uv.x / uv.y) + (21.11*phase2) * uv.x + freq * time));
+#define texture(s, uv) vec4(0.0)
+#define textureLod(s, uv, lod) vec4(0.0)
+
+#define time (1000.0+(time*0.1))
+
+
+// --------- [ original shadertoy ] ----------
+
+#define width .005
+float zoom = .18;
+float shape=0.;
+vec3 color=vec3(0.),randcol;
+
+
+void formula(vec2 z, float c) {
+  float timeRate = 5.0;
+
+	float minit=0.;
+	float o,ot2,ot=ot2=1000.;
+	for (int i=0; i<9; i++) {
+		z=abs(z)/clamp(dot(z,z),.1,.5)-c;
+		float l=length(z);
+		o=min(max(abs(min(z.x,z.y)),-l+.25),abs(l-.25));
+		ot=min(ot,o);
+		ot2=min(l*.1,ot2);
+		minit=max(minit,float(i)*(1.-abs(sign(ot-o))));
+	}
+	minit+=1.;
+	float w=width*minit*2.;
+	float circ=pow(max(0.,w-ot2)/w,6.);
+	shape+=max(pow(max(0.,w-ot)/w,.25),circ);
+	vec3 col=normalize(.1+texture(iChannel1,vec2(minit*.1)).rgb);
+	color+=col*(.4+mod(minit/9.-(time*timeRate)+ot2*2.,1.)*1.6);
+	color+=vec3(1.,.7,.3)*circ*(10.-minit)*3.*smoothstep(0.,.5,.15+texture(iChannel0,vec2(.0,1.)).x-.5);
 }
 
-
-
-vec4 imageCenter(bool usePos, vec2 pos) {
-
-
-
-  //time += 50.0;
-
-
-
-
-  float timeOffset = 10000.0;
-  //pos.x += sin(time/10.0); 
-  //pos.y -= cos(time/10.0); 
-  vec2 uv;
-
-  vec2 m = mouse.xy;
-  if (m.x > 1.0) { m.x = 1.0; }
-  if (m.x < -1.0) { m.x = -1.0; }
-  if (m.y > 1.0) { m.y = 1.0; }
-  if (m.y < -1.0) { m.y = -1.0; }
-
-  m *= 2.0;
-  //m.x += sin(time/10.0); 
-  //m.y -= cos(time/12.0); 
-
-
-
-  //usePos = true;
-  // render disorted
-  if (usePos) { // circle
-    //pos = gl_FragCoord.xy;
-    uv = pos.yx * m.yx;
-  // render normal image
-  } else { // background
-    //pos = gl_FragCoord.xy;
-    uv = pos.xy * m.xy;
-    //uv = pos * m / 10.0;
-    //uv = ceil((302.-size) * pos.xy / (resolution.y));
-  }
-
-
-	float T = (time+timeOffset) * rate;
-	gl_FragColor = vec4(0, 0, 0, 1);
-	float light = f(uv) + f(uv + vec2(0.1, 0.1));
-	gl_FragColor += vec4(light, 0.01 * light, 0.01, 1.0);
-	float back = 0.2 * sin(11.71 * uv.x + T) + mix(0.01, 0.2 + sin(pulse * (time+timeOffset)), cos(55.21 * dot(uv.y, uv.x) + 3.0 + 0.2 * T)); 
-	vec4 fx = vec4(back, back, back, 1.0);
-	vec4 gfc = fx;
-
-  vec4 outCol = vec4(gfc);
-	//if (flip) outCol = vec4(outCol.grba);
-	//if (invert) outCol /= vec4 (1.0-outCol.rgb,1.0);
-	//if (flop) outCol = outCol.brga;
-
-  //outCol = gl_FragColor;
-
-  return outCol;
-}
-//////// image END
-
-
-
-
-
-
-
-
-vec4 color1 = vec4(0.0, 0.0, 0.0, 1.0);
-vec4 color2 = vec4(1.0, 1.0, 1.0, 1.0);
-float width = 2.0;
-float softness = 0.5;
-float count = 10.0;
-
-
-vec4 imageBackground() {
-  float rotation = mod(time/10.0, 1.0);
-	vec4 out_color = color1;
-
-	vec2 vv_FragNormCoord = ( gl_FragCoord.xy / resolution.xy );
-	//	convert to polar coordinates
-	vec2 loc = vec2(vv_FragNormCoord[0],vv_FragNormCoord[1]);
-	loc.y = (loc.y - 0.5) * resolution.y / resolution.x + 0.5;
-	float r = 2.0 * count * distance(vec2(0.5,0.5), loc) + width;
-	float theta = atan ((loc.y-0.5),(loc.x-0.5));
-
-	loc.y = r * sin(theta + 2.0 * pi * rotation) + 0.5;
-
-	if (loc.y < 0.5)	{
-		theta = theta + 2.0 * pi;
-		theta = mod(theta + rotation * 2.0 * pi, 2.0 * pi);
-		theta = (theta + 2.0 * pi * floor(r - width));
-	}
-	else	{
-		theta = mod(theta + rotation * 2.0 * pi, 2.0 * pi);
-		theta = (theta + 2.0 * pi * floor(r + width));
-	}
-
-	if (width == 0.0)	{
-		out_color = color1;
-	} else 	{
-		float dist = abs(r - theta/(2.0*pi));
-		if (dist < width)	{
-			if (dist > width * (1.0-softness))	{
-				out_color = mix(color2, color1, (dist - width * (1.0-softness))/(width - width * (1.0-softness)));
-			}
-			else	{
-				out_color = color2;
-			}
-		}
-	}
-
-	return out_color;
-}
-
-
-
+// --------[ Original ShaderToy ends here ]---------- //
 
 
 
 
 
 void main( void ) {
-	//vec2 isf_FragNormCoord = ( gl_FragCoord.xy / resolution.xy ) - vec2(0.5,0.5);	
+
+	//vec2 isf_FragNormCoord = ( gl_FragCoord.xy / resolution.xy ) - vec2(0.5,0.5);
 	vec2 isf_FragNormCoord = ( gl_FragCoord.xy / resolution.xy );
 	//float a = 0.1*time;
+	//gl_FragColor = vec4(final,1.0);
 
-  // exposed stuffs
-  vec3 colorInput = vec3(1.0, 0.0, 0.0);
-  float radius = 0.30; // fill whole screen
-  float angle = 0.5;
-  float speedParam = 0.5;
-  float level = 0.0;
-  vec2 pointInput = vec2(0.5);
+  vec4 fragCoord = gl_FragCoord;
+  vec2 iResolution = resolution;
 
+	vec2 pos = fragCoord.xy / iResolution.xy - .5;
+	pos.x*=iResolution.x/iResolution.y;
+	vec2 uv=pos;
+	float sph = length(uv); sph = sqrt(1. - sph*sph)*1.5; // curve for spheric distortion
+	uv=normalize(vec3(uv,sph)).xy;
+	float a=time+mod(time,1.)*.5;
+	vec2 luv=uv;
+	float b=a*5.48535;
 
-	gl_FragColor = vec4(0.4);
-  //vec2 mouse = pointInput;
-	vec2 uv = isf_FragNormCoord.xy;
-    float timeParam = time *  speedParam * 1.5;
-    float m = 0.5;
-    vec2 ak = isf_FragNormCoord.xy-0.5;
-    float a = angle;
-    ak = mat2(cos(a),-sin(a),sin(a),cos(a)) * ak + .5;
-	  ak.y-=0.5;
-    ak.y*=0.005;
-    ak.y+=0.5;
-    ak.y = m;
-    //vec4 fu = IMG_NORM_PIXEL(inputImage, ak);
-    //vec4 bgi = IMG_NORM_PIXEL(backgroundImage, isf_FragNormCoord);
-    vec4 fu = imageCenter(true, ak);
-    //vec4 bgi = imageBackground();
-     vec4 bgi = imageCenter(false, ak);
-    //vec4 bgi = IMG_NORM_PIXEL(backgroundImage, isf_FragNormCoord);
-    bgi.rgb *= colorInput.rgb;
-    
-    vec3 blur    = vec3(.1,      .3,     .2) * 3.1;   
-    vec3 speed   = vec3(1.3,    .14,    2.12),
-    // amplitude  = vec3(.223,  .21,   .14),
-     amplitude  = vec3(fu.r,  fu.g,  fu.b),
-     frequency  = vec3(2.12,   4.6,   7.5) * .2,
-     wave = vec3( sin(uv.x * frequency - timeParam * speed) * amplitude + level ),
-     smoothwave = vec3(smoothstep(wave, wave + blur, uv.yyy));
-     
-     float ratio = resolution.x/resolution.y;
-     vec2 ce = isf_FragNormCoord.xy -0.5;
-     ce.x*=ratio;
-     
-     float k = distance(ce,pointInput-0.5);
-     float d = smoothstep(k/0.99,k,radius);
-     //d = 0.1;
-	 vec3 final = mix(bgi.rgb,smoothwave,d);
+  // Move camera
+	zoom*=1.+sin(time*3.758123)*.8;
+  float rate = 0.2;
+	uv*=mat2(cos(b*rate),sin(b*rate),-sin(b*rate),cos(b*rate));
+	uv+=vec2(sin(a),cos(a*.5))*0.2;
 
-	gl_FragColor = vec4(final,1.0);
+	uv*=zoom;
+	float pix=.5/iResolution.x*zoom/sph;
+	float dof=max(1.,(10.-mod(time,1.)/.01));
+	float c=1.5+mod(floor(time),6.)*.125;
+	for (int aa=0; aa<36; aa++) {
+		vec2 aauv=floor(vec2(float(aa)/6.,mod(float(aa),6.)));
+		formula(uv+aauv*pix*dof,c);
+	}
+	shape/=36.; color/=36.;
+	vec3 colo=mix(vec3(.15),color,shape)*(1.-length(pos))*min(1.,abs(.5-mod(time+.5,1.))*10.);
+	colo*=vec3(1.2,1.1,1.0);
+  colo *= 0.6;
+	gl_FragColor = vec4(colo,1.0);
 }
 </script>
+
 
 
 
@@ -476,9 +387,11 @@ function recordMousePosition(e) {
 
 function resize() {
   var canvas = renderer.domElement;
-  var dpr    = window.devicePixelRatio;  // make 1 or less if too slow
+  //var dpr    = window.devicePixelRatio;  // make 1 or less if too slow
+  var dpr    = 0.5;
   var width  = canvas.clientWidth  * dpr;
   var height = canvas.clientHeight * dpr;
+
   if (width != canvas.width || height != canvas.height) {
     renderer.setSize( width, height, false );
     uniforms.resolution.value.x = renderer.domElement.width;
