@@ -134,8 +134,6 @@ canvas {
 }
 </style>
 
-
-
 <!-- GLSL eyecandy: vertex shader -->
 <script id="vs" type="not-js">
 void main()	{
@@ -143,234 +141,35 @@ void main()	{
 }
 </script>
 
-
-
 <!-- GLSL eyecandy: pixel shader -->
-<script id="fs-other" type="not-js">
-precision mediump float;
-
-uniform float time;
-uniform vec2 mouse;
-uniform vec2 resolution;
-
-void main()	{
-
-  vec2 position;
-  position = (gl_FragCoord.xy / resolution.xy) + mouse / 5.0;
-  position = (position * resolution.xy) / resolution.y;
-
-  float t = time/2.0;
-  float color = 0.0;
-  color += sin(position.x * cos(t / 23.0) * 90.0) + cos(position.y * cos(t / 11.0) * 20.0);
-  color -= sin(position.y * sin(t / 17.0) * 60.0) + cos(position.x * sin(t / 19.0) * 30.0);
-  color += sin(position.x * sin(t / 11.0) * 30.0) + sin(position.y * sin(t / 34.0) * 50.0);
-  color -= sin(position.x * sin(t /  7.0) * 15.0) + sin(position.y * sin(t / 48.0) * 90.0);
-  color *= sin(t / 10.0) * 0.5;
-  vec4 c = vec4(vec3(color, color * 0.7, sin(color + t / 2.0) * 0.9), 1.0);
-  //c = vec4(c.b, c.r, c.g, 1.0);
-  c = clamp(c, 0.0, 0.5);
-
-  gl_FragColor = c;
-}
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r74/three.min.js"></script>
-
-
-<script id="fs-old" type="not-js">
-#ifdef GL_ES
-precision mediump float;
-#endif
-
-uniform float time;
-uniform vec2 mouse;
-uniform vec2 resolution;
-
-void main( void ) {
-	
-	vec2 pos = ( gl_FragCoord.xy / resolution.xy ) - vec2(0.5,0.5);	
-
-  pos.y = -pos.y;
-
-        //float horizon = -0.3*cos(mouse.y*10.0/3.0); 
-        float horizon = -0.3*mouse.y;
-
-        float fov = 0.6;
-	float scaling = 0.61;
-	
-	vec3 p = vec3(pos.x, fov, pos.y - horizon);
-	//float a = -mouse.x*0.1*time;
-	float a = 0.1*time;
-	vec3 q = vec3(p.x*cos(a)+p.y*sin(a), p.x*sin(a)-p.y*cos(a),p.z);
-	vec2 s = vec2(q.x/q.z, q.y/q.z) * scaling;
-
-	//checkboard texture
-	//float color = sign((mod(s.x, 0.1) - 0.05) * (mod(s.y, 0.1) - 0.05));	
-	float color = sign((mod(s.x, 0.1) - 0.05));
-  color += 2.0;
-	//fading
-	color *= p.z*p.z*(8.0+2.0*sin(time*3.));
-	
-	//gl_FragColor = vec4( color*vec3(1.0, s.x, s.y), 1.0 );
-	gl_FragColor = vec4( color*vec3(s.x, s.y, s.y), 1.0 );
-	gl_FragColor -= 0.2;
-}
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script id="fs" type="not-js">
-#ifdef GL_ES
-precision mediump float;
-#endif
-
-uniform float time;
-uniform vec2 mouse;
-uniform vec2 resolution;
-
-const float pi = 3.14159265359;
-
-
-#define texture(s, uv) vec4(0.0)
-#define textureLod(s, uv, lod) vec4(0.0)
-
-#define time (1000.0+(time*0.1))
-
-
-// --------- [ original shadertoy ] ----------
-
-#define width .005
-float zoom = .18;
-float shape=0.;
-vec3 color=vec3(0.),randcol;
-
-
-void formula(vec2 z, float c) {
-  float timeRate = 5.0;
-
-	float minit=0.;
-	float o,ot2,ot=ot2=1000.;
-	for (int i=0; i<9; i++) {
-		z=abs(z)/clamp(dot(z,z),.1,.5)-c;
-		float l=length(z);
-		o=min(max(abs(min(z.x,z.y)),-l+.25),abs(l-.25));
-		ot=min(ot,o);
-		ot2=min(l*.1,ot2);
-		minit=max(minit,float(i)*(1.-abs(sign(ot-o))));
-	}
-	minit+=1.;
-	float w=width*minit*2.;
-	float circ=pow(max(0.,w-ot2)/w,6.);
-	shape+=max(pow(max(0.,w-ot)/w,.25),circ);
-	vec3 col=normalize(.1+texture(iChannel1,vec2(minit*.1)).rgb);
-	color+=col*(.4+mod(minit/9.-(time*timeRate)+ot2*2.,1.)*1.6);
-	color+=vec3(1.,.7,.3)*circ*(10.-minit)*3.*smoothstep(0.,.5,.15+texture(iChannel0,vec2(.0,1.)).x-.5);
-}
-
-// --------[ Original ShaderToy ends here ]---------- //
-
-
-
-
-
-void main( void ) {
-
-	//vec2 isf_FragNormCoord = ( gl_FragCoord.xy / resolution.xy ) - vec2(0.5,0.5);
-	vec2 isf_FragNormCoord = ( gl_FragCoord.xy / resolution.xy );
-	//float a = 0.1*time;
-	//gl_FragColor = vec4(final,1.0);
-
-  vec4 fragCoord = gl_FragCoord;
-  vec2 iResolution = resolution;
-
-	vec2 pos = fragCoord.xy / iResolution.xy - .5;
-	pos.x*=iResolution.x/iResolution.y;
-	vec2 uv=pos;
-	float sph = length(uv); sph = sqrt(1. - sph*sph)*1.5; // curve for spheric distortion
-	uv=normalize(vec3(uv,sph)).xy;
-	float a=time+mod(time,1.)*.5;
-	vec2 luv=uv;
-	float b=a*5.48535;
-
-  // Move camera
-	zoom*=1.+sin(time*3.758123)*.8;
-  float rate = 0.2;
-	uv*=mat2(cos(b*rate),sin(b*rate),-sin(b*rate),cos(b*rate));
-	uv+=vec2(sin(a),cos(a*.5))*0.2;
-
-	uv*=zoom;
-	float pix=.5/iResolution.x*zoom/sph;
-	float dof=max(1.,(10.-mod(time,1.)/.01));
-	float c=1.5+mod(floor(time),6.)*.125;
-	for (int aa=0; aa<36; aa++) {
-		vec2 aauv=floor(vec2(float(aa)/6.,mod(float(aa),6.)));
-		formula(uv+aauv*pix*dof,c);
-	}
-	shape/=36.; color/=36.;
-	vec3 colo=mix(vec3(.15),color,shape)*(1.-length(pos))*min(1.,abs(.5-mod(time+.5,1.))*10.);
-	colo*=vec3(1.2,1.1,1.0);
-  colo *= 0.6;
-	gl_FragColor = vec4(colo,1.0);
-}
+  {% include shaders/circuits.glsl %}
 </script>
-
-
-
-
-
-
 
 <!-- GLSL eyecandy: Three.js renderer -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r74/three.min.js"></script>
 <script>
 var $ = document.querySelector.bind(document);
-
 var camera = new THREE.Camera();
 camera.position.z = 1;
-
 var scene = new THREE.Scene();
-
 var geometry = new THREE.PlaneBufferGeometry(2, 2);
-
 var uniforms = {
   time: { type: "f", value: 1.0 },
   resolution: { type: "v2", value: new THREE.Vector2() },
   mouse: { type: "v2", value: new THREE.Vector2() },
 };
-
 var material = new THREE.ShaderMaterial({
   uniforms: uniforms,
   vertexShader: $('#vs').text,
   fragmentShader: $('#fs').text,
 });
-
 var mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
-
 var renderer = new THREE.WebGLRenderer();
 
 var topElement = document.getElementById("topmost-layer");
 topElement.insertBefore(renderer.domElement, topElement.firstChild);
-
 document.body.addEventListener('mousemove', recordMousePosition);
 
 render(0);
