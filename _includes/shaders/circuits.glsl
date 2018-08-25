@@ -90,5 +90,4 @@ void main( void ) {
   colo *= 0.6;
 	gl_FragColor = vec4(colo,1.0);
 }
-</script>
 
