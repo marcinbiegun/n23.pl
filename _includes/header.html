@@ -30,6 +30,16 @@
           <nav class="cover-navigation navigation--social">
             <ul class="navigation">
 
+            {% if site.author.github_username %}
+              <!-- GitHub -->
+              <li class="navigation__item">
+                <a href="https://www.github.com/{{ site.author.github_username }}" title="{{ site.author.github_username }} on GitHub" target="_blank">
+                  <i class="icon icon-social-github"></i>
+                  <span class="label">GitHub</span>
+                </a>
+              </li>
+            {% endif %}
+
             {% if site.author.twitter_username %}
               <!-- Twitter -->
               <li class="navigation__item">
@@ -50,22 +60,22 @@
               </li>
             {% endif %}
 
+            {% if site.author.instagram_username %}
+              <!-- instagram -->
+              <li class="navigation__item">
+                <a href="http://instagram.com/{{ site.author.instagram_username }}" title="{{ site.author.instagram_username }} on instagram" target="_blank">
+                  <i class="icon icon-social-instagram"></i>
+                  <span class="label">instagram</span>
+                </a>
+              </li>
+            {% endif %}
+
             {% if site.author.linkedin_username %}
               <!-- LinkedIn -->
               <li class="navigation__item">
                 <a href="https://www.linkedin.com/in/{{ site.author.linkedin_username }}" title="{{ site.author.linkedin_username }} on LinkedIn" target="_blank">
                   <i class="icon icon-social-linkedin"></i>
                   <span class="label">LinkedIn</span>
-                </a>
-              </li>
-            {% endif %}
-
-            {% if site.author.github_username %}
-              <!-- GitHub -->
-              <li class="navigation__item">
-                <a href="https://www.github.com/{{ site.author.github_username }}" title="{{ site.author.github_username }} on GitHub" target="_blank">
-                  <i class="icon icon-social-github"></i>
-                  <span class="label">GitHub</span>
                 </a>
               </li>
             {% endif %}
@@ -198,7 +208,7 @@ function recordMousePosition(e) {
 function resize() {
   var canvas = renderer.domElement;
   //var dpr    = window.devicePixelRatio;  // make 1 or less if too slow
-  var dpr    = 0.5;
+  var dpr    = 0.33;
   var width  = canvas.clientWidth  * dpr;
   var height = canvas.clientHeight * dpr;
 
