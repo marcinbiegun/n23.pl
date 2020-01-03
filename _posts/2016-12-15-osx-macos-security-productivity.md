@@ -26,7 +26,7 @@ the list for my future reference, and possible use for other power users.
   - Add a task to task manager's inbox, e.g. `inbox Buy milk`
   - Some custom scripts, e.g. `j GR-123"`command to open Jira ticket
 - [Spectacle](https://www.spectacleapp.com/) - simple window manager, organize windows using keyboard
-- [Amphetamine](https://apps.apple.com/us/app/amphetamine/id937984704?mt=12) - puts a coffee cup icon on the menu bar, clicking it prevents your Mac from going to sleep for an hour (modern version of Caffeine app)
+- [KeepingYouAwake](https://github.com/newmarcel/KeepingYouAwake) - puts a coffee cup icon on the menu bar, clicking it prevents your Mac from going to sleep for an hour (modern version of Caffeine app)
 - [Flux](https://justgetflux.com) - prevents your eyes from being burned in late hours
 - [MenuMeters](http://member.ipmu.jp/yuji.tachikawa/MenuMetersElCapitan/)
   - displays system metrics (CPU, memory, network, disk usage) on menu bar
