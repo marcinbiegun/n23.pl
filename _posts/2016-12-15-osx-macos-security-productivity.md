@@ -52,14 +52,19 @@ the list for my future reference, and possible use for other power users.
 ### Console tools
 
 - [iTerm2](https://iterm2.com/) - a better terminal
-- Install ZSH with ohmyzsh configuration https://github.com/ohmyzsh/ohmyzsh
-- Install ZSH plugins: https://medium.com/@Clovis_app/configuration-of-a-beautiful-efficient-terminal-and-prompt-on-osx-in-7-minutes-827c29391961
-- Install Popular command replacements: https://remysharp.com/2018/08/23/cli-improved
-  - `alias ls="lsd"`
-  - `alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"`
-  - `alias cat="bat"`
-  - `alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"`
-  - `alias ping="prettyping --nolegend"`
+- Install ZSH with ohmyzsh configuration: [https://github.com/ohmyzsh/ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
+- Install ZSH plugins: [https://medium.com/@Clovis_app/configuration-of-a-beautiful-efficient-terminal-and-prompt-on-osx-in-7-minutes-827c29391961](https://medium.com/@Clovis_app/configuration-of-a-beautiful-efficient-terminal-and-prompt-on-osx-in-7-minutes-827c29391961)
+- Install Popular command replacements: [https://remysharp.com/2018/08/23/cli-improved](https://remysharp.com/2018/08/23/cli-improved)
+
+```
+alias ls="lsd"
+alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+alias cat="bat"
+alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+alias ping="prettyping --nolegend"
+```
+
+- Install FiraCode font with icons: [https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)
 
 ## Preferences
 
