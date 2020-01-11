@@ -19,3 +19,4 @@ https://opensyllabus.org/result/title?id=1056562152775
 
 Functional Web Development with Elixir, OTP, and Phoenix (Pragprog)
 
+Factfullness book
