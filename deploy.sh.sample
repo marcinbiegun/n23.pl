@@ -1,0 +1,20 @@
+SSH_USER=xxx
+SSH_HOST=xxx
+REMOTE_DIR=/home/xxx/xxx
+
+# Build
+bin/jekyll build
+
+# Sync files
+rsync -av ./_site/* $SSH_USER@$SSH_HOST:$REMOTE_DIR
+
+# Set directories to 755
+ssh $SSH_USER@$SSH_HOST <<'ENDSSH'
+find $REMOTE_DIR -type d -exec chmod 755 {} \;
+ENDSSH
+
+# Set files to 644
+ssh $SSH_USER@$SSH_HOST <<'ENDSSH'
+find $REMOTE_DIR -type f -exec chmod 644 {} \;
+ENDSSH
+
