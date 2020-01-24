@@ -5,3 +5,4 @@ _site.tar.gz
 .DS_Store
 deploy.sh
 vendor
+bin
