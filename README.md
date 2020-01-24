@@ -4,12 +4,16 @@ Source files for my homepage: http://n23.pl
 
 ## Installation
 
-Works with Ruby 2.2.
+Works with Ruby 2.2.\*.
 
 ```
-bundle
-jekyll serve
+bundle install --binstubs
+bin/jekyll serve
 ```
+
+## Deployment
+
+Copy and fill details in `deploy.sh.sample` file.
 
 ## Kudos
 
