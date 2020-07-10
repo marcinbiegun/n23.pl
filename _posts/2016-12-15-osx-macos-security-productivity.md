@@ -85,7 +85,7 @@ the list for my future reference, and possible use for other power users.
 - Mouse
   - Enable right click
 - Accessibility
-  - Enable zoom on ctrl+mousewhell
+  - Enable zoom on option+mousewhell
 - Display
   - Disable "automatically adjust brightness"
 - Mission Control
