@@ -31,7 +31,7 @@ the list for my future reference, and possible use for other power users.
 - [MenuMeters](http://member.ipmu.jp/yuji.tachikawa/MenuMetersElCapitan/)
   - displays system metrics (CPU, memory, network, disk usage) on menu bar
   - quickly identify anomalies like zombie apps taking 100% of CPU power
-- [BrightnessMenulet](https://github.com/superduper/BrightnessMenulet) - software controls for monitor brightness
+- [MonitorControl](https://github.com/MonitorControl/MonitorControl) - software controls for monitor brightness
 - [BetterTouchtool](https://www.boastr.net) - customize TouchBar icons
 
 ### Security Apps
