@@ -33,6 +33,8 @@ the list for my future reference, and possible use for other power users.
   - quickly identify anomalies like zombie apps taking 100% of CPU power
 - [MonitorControl](https://github.com/MonitorControl/MonitorControl) - software controls for monitor brightness
 - [BetterTouchtool](https://www.boastr.net) - customize TouchBar icons
+- [UnnaturalScrollWheels](UnnaturalScrollWheels) - automatically enable "Natural" mouse
+scrolling on Apple Mouse and disable it for other mouses
 
 ### Security Apps
 
