@@ -1,28 +1,25 @@
 # Site settings
-title: 'n23.pl'
-description: 'Marcin Biegun'
-url: 'http://n23.pl'
-baseurl: '/'
-google_analytics: 'UA-85551651-1'
+title: "n23.pl"
+description: "Marcin Biegun"
+url: "http://n23.pl"
+baseurl: "/"
+google_analytics: "UA-85551651-1"
 show_rss_link: false
 
 author:
-  name: 'Marcin Biegun'
-  email: 'maxrcxin!xmxm.xsxt'
+  name: "Marcin Biegun"
+  email: "maxrcxin!xmxm.xsxt"
   github_username: marcinbiegun
   instagram_username: spacecatlabs
   twitter_username: nagl23_
-  youtube_channel_id: 'UCF-75X6bzZz0l0AWsdgYyVA'
-  # pinterest_username: nagl23_
-  # linkedin_username: mabiegun
+  youtube_channel_id: "UCixNBzP4tZq5jwwxP-nd68w"
 
 defaults:
-  -
-    scope:
-      path: ''
-      type: 'posts'
+  - scope:
+      path: ""
+      type: "posts"
     values:
-        layout: 'post'
+      layout: "post"
 
 # Build settings
 destination: _site
@@ -37,5 +34,5 @@ kramdown:
   # do not replace newlines by <br>s
   hard_wrap: false
 
-gems: ['jekyll-paginate']
-exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'screenshot.png']
+gems: ["jekyll-paginate"]
+exclude: ["README.md", "Gemfile", "Gemfile.lock", "screenshot.png"]
